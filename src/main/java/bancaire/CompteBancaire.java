@@ -11,6 +11,7 @@ public abstract class CompteBancaire {
     public CompteBancaire(double solde, Client client) {
         this.solde = solde;
         this.client = client;
+        this.client.setAccounts(this);
     }
 
     public double getSolde() {
@@ -18,6 +19,11 @@ public abstract class CompteBancaire {
     }
     public void setSolde(double solde) {
         this.solde += solde;
+        if(solde > 0) {
+            this.operations.add(new Operation(solde, Status.DEPOSIT));
+        } else {
+            this.operations.add(new Operation(solde, Status.WITHDRAWAL));
+        }
     }
 
     public Client getClient() {
@@ -39,7 +45,7 @@ public abstract class CompteBancaire {
     @Override
     public String toString() {
         return "Client : " + this.client.getFirstname() + " " + this.client.getLastname() +
-                "\n Solde : " + this.solde +
-                "\n Type de compte : " + this.getClass() ;
+                "\n Solde : " + this.solde + "€" +
+                "\n Type de compte : " + this.getClass().getSimpleName() ;
     }
 }

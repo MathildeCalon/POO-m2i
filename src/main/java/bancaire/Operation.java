@@ -34,8 +34,8 @@ public class Operation {
 
     @Override
     public String toString() {
-        return "Opérations : " + this.client.getFirstname() + " " + this.client.getLastname() +
-                "\n Solde : " + this.solde +
-                "\n Type de compte : " + this.getClass() ;
+        return "Opération : " + this.number +
+                "\n Montant : " + this.amount +
+                "\n Type d'opération : " + this.status ;
     }
 }
