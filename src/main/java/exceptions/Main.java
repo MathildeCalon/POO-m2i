@@ -20,17 +20,41 @@ public class Main {
 //        }
 
 
-        // SQUARE ROOT
+//        // SQUARE ROOT
+//        try {
+//            System.out.println("Saisissez un nombre entier positif pour calculer sa racine carré.");
+//            int enteredInt = scanner.nextInt();
+//            squareRoot(enteredInt);
+//        } catch (NegativeNumberException e){
+//            System.out.println("Nombre négatif refusé");
+//        } catch (InputMismatchException e) {
+//            System.out.println("Pas un chiffre entier !");
+//        }
+
+        // INT ARRAY
+        System.out.println("Entrez un entier");
+        int nbr1 = scanner.nextInt();
+        System.out.println("Entrez un entier");
+        int nbr2 = scanner.nextInt();
+        System.out.println("Entrez un entier");
+        int nbr3 = scanner.nextInt();
+        System.out.println("Entrez un entier");
+        int nbr4 = scanner.nextInt();
+        System.out.println("Entrez un entier");
+        int nbr5 = scanner.nextInt();
+        int[] intArray = {nbr1, nbr2, nbr3, nbr4, nbr5};
+
         try {
-            System.out.println("Saisissez un nombre entier positif pour calculer sa racine carré.");
-            int enteredInt = scanner.nextInt();
-            squareRoot(enteredInt);
-        } catch (NegativeNumberException e){
-            System.out.println("Nombre négatif refusé");
-        } catch (InputMismatchException e) {
-            System.out.println("Pas un chiffre entier !");
+            indexArray(intArray, 5);
+        } catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Pas d'élement à cet endroit !");
         }
     }
+
+        // INT ARRAY WITH EXCEPTION
+        public static void indexArray (int[]array, int index){
+            System.out.println(array[index]);
+        }
 
         // SQUARE ROOT FUNCTION WITH EXCEPTION
         public static void squareRoot (int enteredInt) throws NegativeNumberException{
