@@ -19,14 +19,24 @@ public class Main {
 //            System.out.println("Pas des chiffres");
 //        }
 
-        // SQUARE ROOT
-        System.out.println("Saisissez un nombre entier positif pour calculer sa racine carré.");
-        int enteredInt = scanner.nextInt();
 
+        // SQUARE ROOT
         try {
-            System.out.println("Racine carré : " + Math.sqrt(enteredInt));
+            System.out.println("Saisissez un nombre entier positif pour calculer sa racine carré.");
+            int enteredInt = scanner.nextInt();
+            squareRoot(enteredInt);
+        } catch (NegativeNumberException e){
+            System.out.println("Nombre négatif refusé");
         } catch (InputMismatchException e) {
-            System.out.println("Ce n'est pas un chiffre.");
+            System.out.println("Pas un chiffre entier !");
         }
+    }
+
+        // SQUARE ROOT FUNCTION WITH EXCEPTION
+        public static void squareRoot (int enteredInt) throws NegativeNumberException{
+            if(enteredInt < 0){
+                throw new NegativeNumberException("Nombre négatif");
+            }
+            System.out.println(Math.sqrt(enteredInt));
     }
 }
